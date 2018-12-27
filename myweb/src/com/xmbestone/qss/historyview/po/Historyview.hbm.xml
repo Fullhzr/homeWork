@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2014-10-24 10:25:26 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+ <class name="com.xmbestone.qss.historyview.po.Historyview" table="historyview">
+	   <id name="userid" type="int">
+		<column name="USERID"/>
+		<generator class="native"/><!-- assigned String -->
+	   </id>
+	   <property generated="never" lazy="false" name="username" type="java.lang.String">
+	   	<column name="USERNAME" />
+	   </property>
+	 
+	    <property generated="never" lazy="false" name="history_id" type="java.lang.String">
+	   	<column name="HISTORY_ID"/>
+	   </property>
+	  
+	    <property generated="never" lazy="false" name="friend_userid" type="java.lang.String">
+	   	<column name="FRIEND_USERID"/>
+	   </property>
+	  
+	    <property generated="never" lazy="false" name="history_info_id" type="java.lang.String">
+	   	<column name="HISTORY_INFO_ID"/>
+	   </property>
+	  
+	  
+	 
+	    <property generated="never" lazy="false" name="starttime" type="java.lang.String">
+	   	<column name="STARTTIME"/>
+	   </property>
+	
+	    <property generated="never" lazy="false" name="endtime" type="java.lang.String">
+	   	<column name="ENDTIME"/>
+	   </property>
+	   <property generated="never" lazy="false" name="longitude" type="java.lang.String">
+	   	<column name="LONGITUDE"/>
+	   </property>
+	   <property generated="never" lazy="false" name="latitude" type="java.lang.String">
+	   	<column name="LATITUDE"/>
+	   </property>
+    </class>
+</hibernate-mapping>

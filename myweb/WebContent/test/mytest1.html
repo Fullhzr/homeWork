@@ -1,0 +1,38 @@
+
+<meta charset="UTF-8">
+<div >
+	<table id="testTable" class="easyui-datagrid" style="height:300px;width:800px" data-options="fitColumns:true" toolbar="#testToolbar">
+		<thead>
+			<th field="id" width="50px">序号</th>
+			<th field="stuName" width="50px">姓名</th>
+			<th field="stuNo" width="60px">学号</th>
+		</thead>
+	
+	</table>
+</div>
+
+<script type="text/javascript">
+/**
+ * 获得学生数据并加载
+ */
+ 	function testLoadData(){
+ 		$.ajax({ 
+ 			type : "POST",
+ 			dataType : "json",
+ 			url :"student_list",
+ 			success : function(data){
+ 				alert(data)
+				var d = eval("["+data+"]");
+				  $('#testTable').datagrid({
+						data:d[0].list,
+						    
+				  });
+
+ 		    } 
+ 		})
+	}
+	$(function(){
+		testLoadData();
+	})
+</script>
+

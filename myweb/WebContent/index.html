@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>LayOut</title>
+    <link rel="stylesheet" type="text/css" href="./common/plugin/easyui/themes/default/easyui.css"/>
+        <link rel="stylesheet" type="text/css" href="./common/plugin/easyui/themes/icon.css"/>
+    <link rel="stylesheet" type="text/css" href="./common/css/qss.css"/>
+    <script type="text/javascript" src="./common/plugin/easyui/jquery.min.js"></script>
+    <script type="text/javascript" src="./common/plugin/easyui/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="./common/plugin/easyui/locale/easyui-lang-zh_CN.js"></script>
+  <link type="text/css" href="./common/plugin/ueditor/themes/default/css/ueditor.css" rel="stylesheet"/>  
+   
+   	<script type="text/javascript"
+			src="./common/plugin/ueditor/editor_config.js"></script>
+		<script type="text/javascript"
+			src="./common/plugin/ueditor/editor_all.js"></script>
+		<link rel="stylesheet" type="text/css"
+			href="./common/plugin/ueditor/themes/default/ueditor.css" />
+   
+   
+   
+   
+    <script type="text/javascript" charset="utf-8" src="./common/js/validate.js"></script>
+    <script type="text/javascript" charset="utf-8" src="./common/js/form.js"></script>
+     <script type="text/javascript" charset="utf-8" src="./common/js/imgDo.js"></script>
+       <script type="text/javascript" charset="utf-8" src="./common/plugin/ueditor/lang/zh-cn/zh-cn.js"></script>
+      <script src="./common/plugin/uploadify/jquery.imgreview.min.js"></script>
+    <script src="./common/plugin/uploadify/Jcrop/js/jquery.Jcrop.min.js"></script>
+    
+   
+</head>
+<body class="easyui-layout">   
+<form id="form1"  style="height:100%; border:green 0px solid;" region="center">  
+    <div data-options="region:'north'" style="height:80px;"></div>   
+    <div data-options="region:'west'" style="width:200px">
+    	<div style="width: 100%;height: 29px;background-color:#E0ECFF"></div>
+	    <div id="aa" class="easyui-accordion">   
+	        <div title="测试" data-options="iconCls:'icon-save',selected:true" style="padding:10px;"> 
+	         	  <p onclick="addPanel('测试页面管理','test/mytest.html')">easyui交互</p>  
+	         	   <p onclick="addPanel('测试页面管理','test/mytest1.html')">原生态交互</p>  
+	         	    <p onclick="addPanel('测试页面管理','test/mytest2.html')">原生态交互</p>  
+	        </div>
+	        <div title="人员管理 " data-options="iconCls:'icon-save'" style="padding:10px;"> 
+	              <p>部门管理</p>
+	        </div>   
+		</div>  
+   </div>
+    <div id="tt" class="easyui-tabs" style="background:#eee;" data-options="region:'center'">   
+        
+    </div>
+    <div title="Ajax" data-options="href:'_content.html',closable:true" style="padding:10px"></div>
+</form>
+    <script type="text/javascript">
+    var index = 0;
+    function addPanel(_title,_content){
+        
+        //超出窗口打开上限
+        if(index>5){
+        	alert("打开的页面超过上限");
+        	
+        }
+        //已经打开窗口，则激活该Tab
+        if($('#tt').tabs('exists',_title)){
+        	$('#tt').tabs('select',_title)
+        	return false;
+        }
+        
+        index++;
+        $('#tt').tabs('add',{
+            title: _title,
+            closable: true,
+            href:_content
+        });
+    }
+    </script>  
+</body>
+</html>

@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2014-10-24 10:25:26 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+ <class name="com.xmbestone.qss.users.po.Users" table="users">
+		<!-- name:标识属性的名字 -->
+		<!-- type:标识Hibernate的名字 -->
+		<!-- column:主键字段的名字 -->
+		<!-- name:标识属性的名字 -->
+	    <id name="userid" type="int">
+		<column name="userid"/>
+		<generator class="native"/>
+	    </id> 
+	    <property generated="never" name="username"
+			type="java.lang.String">
+			<column length="20" name="username"  />
+		</property>
+		<property generated="never" name="password"
+			type="java.lang.String">
+			<column length="20" name="password" not-null="true" />
+		</property>
+		<property generated="never" name="sex"
+			type="java.lang.String">
+			<column length="20" name="sex"   />
+		</property>
+		<property generated="never" name="email"
+			type="java.lang.String">
+			<column length="20" name="email"    />
+		</property>
+		<property generated="never" name="telephone"
+			type="java.lang.String">
+			<column length="20" name="telephone"  not-null="true" />
+		</property>
+		<property generated="never" name="age"
+			type="java.lang.String">
+			<column length="20" name="age"  />
+		</property>
+		<property generated="never" name="address"
+			type="java.lang.String">
+			<column length="20" name="address"   />
+		</property>  
+		<property generated="never" name="registerTime"
+			type="java.lang.String">
+			<column length="20" name="register_time"   />
+		</property>  
+		<property generated="never" name="url"
+			type="java.lang.String">
+			<column length="200" name="user_picture"  />
+		</property>  
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>  
+<RelativeLayout   
+    xmlns:android="http://schemas.android.com/apk/res/android"  
+    android:layout_width="fill_parent"  
+    android:layout_height="wrap_content"  
+    android:gravity="center_horizontal"  
+    android:orientation="vertical"  
+  >  
+  
+	<LinearLayout   
+	    android:id="@+id/pop_layout"  
+	    android:layout_width="fill_parent"  
+	    android:layout_height="wrap_content"  
+	    android:gravity="center_horizontal"  
+	    android:orientation="vertical"  
+	    android:layout_alignParentBottom="true"  
+	     android:background="#cccccc"  
+	     >
+
+		<Button
+		    android:id="@+id/bottom_navigation"
+		    android:layout_width="fill_parent"
+		    android:layout_height="fill_parent"
+		    android:background="@drawable/button"
+		    android:paddingBottom="8dp"
+		    android:paddingLeft="10dp"
+		    android:paddingRight="10dp"
+		    android:paddingTop="8dp"
+		    android:text="到这里"
+		    android:textSize="18sp" />
+  
+        <Button  
+                android:id="@+id/bottom_distance"  
+                android:layout_width="fill_parent"  
+                android:layout_height="fill_parent"  
+                android:layout_marginTop="2dp"  
+                android:background="@drawable/button"  
+                android:paddingBottom="8dp"  
+                android:paddingLeft="10dp"  
+                android:paddingRight="10dp"  
+                android:paddingTop="8dp"  
+                android:text="距离感应"  
+                android:textSize="18sp" />  
+         <Button  
+                android:id="@+id/bottom_history"  
+                android:layout_width="fill_parent"  
+                android:layout_height="fill_parent"  
+                android:layout_marginTop="2dp"  
+                android:background="@drawable/button"  
+                android:paddingBottom="8dp"  
+                android:paddingLeft="10dp"  
+                android:paddingRight="10dp"  
+                android:paddingTop="8dp"  
+                android:text="历史轨迹"  
+                android:textSize="18sp" /> 
+         <Button  
+                android:id="@+id/bottom_qujingtu"  
+                android:layout_width="fill_parent"  
+                android:layout_height="fill_parent"  
+                android:layout_marginTop="2dp"  
+                android:background="@drawable/button"  
+                android:paddingBottom="8dp"  
+                android:paddingLeft="10dp"  
+                android:paddingRight="10dp"  
+                android:paddingTop="8dp"  
+                android:text="全景图"  
+                android:textSize="18sp" /> 
+	   
+	</LinearLayout>  
+</RelativeLayout>  

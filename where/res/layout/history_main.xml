@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#ebebeb" >
+	<!--     title -->
+	<RelativeLayout
+	    android:layout_width="fill_parent"
+	    android:layout_height="52dp"
+	    android:orientation="horizontal"
+	    android:background="@color/qianhuise" >
+	    <TextView
+	        android:id="@+id/biaoti"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_centerInParent="true"
+	        android:text="历史轨迹"
+	        android:textColor="@color/shenhuise" 
+	        android:textSize="22sp" />
+	    <ImageView
+	        android:id="@+id/houtui"
+	        android:layout_width="36dp"
+	        android:layout_height="36dp"
+	        android:layout_alignParentLeft="true"
+	        android:layout_centerVertical="true"
+	        android:layout_marginLeft="15dp"
+	        android:src="@drawable/ic_arrow_back_grey600_36dp"
+	        />
+	    <ImageView
+	        android:id="@+id/ic_map_history"
+	        android:layout_width="36dp"
+	        android:layout_height="36dp"
+	        android:layout_alignParentRight="true"
+	        android:layout_centerVertical="true"
+	        android:layout_marginRight="15dp"
+	        android:src="@drawable/map_point"
+	        />
+	</RelativeLayout>
+	<RelativeLayout
+	    android:layout_width="fill_parent"
+	    android:layout_height="1dp"
+	    android:background="@color/contentColor"
+	    >
+    </RelativeLayout>
+	<!-- 	content -->
+   <LinearLayout
+	android:orientation="vertical"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent">
+		<TextView 
+			android:layout_width="fill_parent"
+			android:layout_height="36dp"
+			android:gravity="center"
+			android:text="用户：t178" 
+			android:textColor="@color/black"/>
+		<com.example.where.widget.AutoListView
+			android:id="@+id/datalist"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent" />	
+</LinearLayout>
+
+    
+    
+
+ 
+ 
+</LinearLayout>
+
+

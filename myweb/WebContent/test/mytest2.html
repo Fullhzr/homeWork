@@ -1,0 +1,115 @@
+	<meta charset="UTF-8">
+	<div style="width: 700px; float: left; margin-left: 20px;margin-top: 10px;" id="divt">
+					<table>
+					      <tr>
+								<td>序号</td>
+                                <td>ID</td>
+                                <td>姓名</td>
+                                <td>学号</td>
+                                <td>操作</td>
+							</tr>
+							<tr>
+								                        
+                                <td>1</td>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>
+                                	<button class="btn btn-primary"> 详细信息</button>
+                                	<button class="btn btn-primary">删除</button>
+                                </td>                      
+							</tr>		
+							<tr>
+								 <td>1</td>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>
+                                	<button class="btn btn-primary"> 详细信息</button>
+                                	<button class="btn btn-primary">删除</button>
+                                </td>          
+							</tr>		
+							<tr>
+								 <td>1</td>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>
+                                	<button class="btn btn-primary"> 详细信息</button>
+                                	<button class="btn btn-primary">删除</button>
+                                </td>          
+							</tr>		
+							<tr>
+								 <td>1</td>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>
+                                	<button class="btn btn-primary"> 详细信息</button>
+                                	<button class="btn btn-primary">删除</button>
+                                </td>          
+							</tr>		
+							<tr>
+								 <td>1</td>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>
+                                	<button class="btn btn-primary"> 详细信息</button>
+                                	<button class="btn btn-primary">删除</button>
+                                </td>          
+							</tr>		
+							<tr>
+								 <td>1</td>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>
+                                	<button class="btn btn-primary"> 详细信息</button>
+                                	<button class="btn btn-primary">删除</button>
+                                </td>          
+							</tr>		
+					</table>
+					
+</div>
+
+<script type="text/javascript">
+/**
+ * 获得学生数据并加载
+ */
+	$(function(){
+		$.ajax({ 
+ 			type : "POST",
+ 			dataType : "json",
+ 			url :"student_list",
+ 			success : function(data){
+ 				
+ 				
+				var d = eval("["+data+"]");
+ 				var list1 = d[0].list;
+ 				var total = parseInt(d[1].total);
+ 				if(total>0){
+ 					var html_="<table> <tr><td>序号</td><td>ID</td><td>姓名</td><td>学号</td><td>操作</td></tr>";
+ 					for(var i=0;i<total;i++){
+ 						var obj = list1[i];
+ 						html_+="<tr><td>"+(i+1)+"</td>";
+ 						html_+="<td>"+obj.id+"</td>";
+ 						html_+="<td>"+obj.stuName+"</td>";
+ 						html_+="<td>"+obj.stuNo+"</td>";
+ 						html_+="<td><buttocn  onclick='del("+obj.id+")'> 详细信息</button><button>删除</button></td></tr>";
+ 					}
+ 					html_+="</table>";
+ 					$("#divt").html(html_);
+ 				}else{
+ 					$("#divt").html("没有查询到记录");
+ 				}
+				  
+
+ 		    } 
+ 		})
+	})
+	function del(){
+	
+}
+</script>
+

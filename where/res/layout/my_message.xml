@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="@color/backColor" >
+	<RelativeLayout 
+	    android:layout_width="fill_parent"
+	    android:layout_height="52dp"
+	    android:orientation="horizontal"
+	    android:background="@color/qianhuise" >
+	
+	    <TextView
+	        android:id="@+id/textView1"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_centerInParent="true"
+	        android:text="消息"
+	        android:textColor="@color/shenhuise" 
+	        android:textSize="22sp" />
+	
+	    <ImageView
+		        android:id="@+id/back_add_newfriend"
+		        android:layout_width="36dp"
+		        android:layout_height="36dp"
+		        android:layout_alignParentLeft="true"
+		        android:layout_centerVertical="true"
+		        android:layout_marginLeft="15dp"
+		        android:src="@drawable/ic_arrow_back_grey600_36dp"
+		        android:onClick="getBackClick"  
+		        android:contentDescription="@string/back"/>
+	    
+	     <ImageView
+	        	android:id="@+id/refresh2"
+	       	    android:layout_width="36dp"
+		        android:layout_height="36dp"
+		        android:layout_alignParentRight="true"
+		        android:layout_centerVertical="true"
+		        android:layout_marginRight="15dp"
+	        	
+	        	android:background="@drawable/ic_refresh_grey600_36dp"/>
+     </RelativeLayout>
+     <RelativeLayout
+	    android:layout_width="fill_parent"
+	    android:layout_height="1dp"
+	    android:background="@color/contentColor"
+	    >
+    </RelativeLayout>
+
+	<RelativeLayout
+	    android:layout_width="fill_parent"
+	    android:layout_marginTop="30dp"
+	    android:layout_height="50dp"
+	    android:orientation="horizontal"
+	    android:background="@color/qianhuise" >
+
+	    <TextView
+	        android:id="@+id/text_userid"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentLeft="true"
+	        android:layout_centerVertical="true"
+	        android:layout_marginLeft="70dp"
+	        android:text="0000"
+	        android:textColor="@color/black" />
+
+	    <Button
+	        android:id="@+id/accept"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_centerVertical="true"
+	        android:layout_marginRight="16dp"
+	        android:layout_toLeftOf="@+id/rejection"
+	        android:background="@color/lianglvse"
+	        android:padding="8dp"
+	        android:text="接受" 
+	       />
+
+	    <Button
+	        android:id="@+id/rejection"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentRight="true"
+	        android:layout_centerVertical="true"
+	        android:layout_marginRight="15dp"
+	        android:background="#cccccc"
+	        android:padding="8dp"
+	        android:text="拒绝" />
+	    
+	    
+
+	</RelativeLayout>
+
+	<Button
+		    android:id="@+id/refresh111"
+		    android:layout_marginTop="50dp"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_centerVertical="true"
+		    android:layout_gravity="center"
+		    android:text="刷新" />
+
+</LinearLayout>

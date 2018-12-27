@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<!--设置Struts 2应用是否使用开发模式--> 
+	<constant name="struts.devMode" value="true"></constant>
+	<!--每次Http请求到达时,是否重新加载资源文件-->
+	<constant name="struts.i18n.reload" value="true"></constant>
+	<!-- 	修改文件上传限制大小为20M -->
+	<constant name="struts.multipart.maxSize" value="20971520"/> 
+	<!--struts.xml文件系统改变后,系统是否重新加载该文件-->
+	<constant name="struts.configuration.xml.reload" value="true"></constant>
+	<!--指定web应用的默认编码集-->
+	<constant name="struts.i18n.encoding" value="UTF-8"></constant>
+	<!--指定所需的国际化资源-->
+	<constant name="struts.custom.i18n.resources" value="messageResource"></constant>
+    <constant name="struts.action.excludePattern" value=".*/editor/.*" />
+    
+    <package name="QSS" extends="struts-default">
+        <result-types>
+            <result-type name="json" class="org.apache.struts2.json.JSONResult"/>
+        </result-types>
+         <interceptors>
+          <interceptor-stack name="myInterceptor">
+               <interceptor-ref name="defaultStack"></interceptor-ref>
+               <interceptor-ref name="json"></interceptor-ref>
+          </interceptor-stack>
+          <interceptor name="json" class="org.apache.struts2.json.JSONInterceptor"/>
+        </interceptors>
+       
+        <default-interceptor-ref name="myInterceptor"></default-interceptor-ref>
+    </package>
+<!-- 	<include file="config/struts/struts_system.xml"></include> -->
+	<include file="config/struts/struts_historyview.xml"></include>
+	<include file="config/struts/struts_historygroupby.xml"></include>
+	<include file="config/struts/struts_real_position.xml"></include>
+	<include file="config/struts/struts_distance_alert.xml"></include>
+	<include file="config/struts/struts_history_info.xml"></include>
+	<include file="config/struts/struts_history_note.xml"></include>
+	<include file="config/struts/struts_request_control.xml"></include>
+	<include file="config/struts/struts_users.xml"></include>		
+</struts>

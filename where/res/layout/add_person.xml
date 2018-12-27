@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/backColor" >
+    <RelativeLayout 
+    android:layout_width="fill_parent"
+    android:layout_height="52dp"
+    android:orientation="horizontal"
+    android:background="@color/qianhuise" >
+	    <TextView
+	        android:id="@+id/addfriend"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_centerInParent="true"
+	        android:text="添加好友"
+	        android:textColor="@color/shenhuise"
+	        android:textSize="22sp" />
+	    <ImageView
+	        android:id="@+id/back_addfriend"
+	        android:layout_width="36dp"
+	        android:layout_height="36dp"
+	        android:layout_alignParentLeft="true"
+	        android:layout_centerVertical="true"
+	        android:layout_marginLeft="15dp"
+	        android:onClick="getBackClick"
+	        android:src="@drawable/ic_arrow_back_grey600_36dp" />
+	</RelativeLayout>
+	<RelativeLayout
+	    android:layout_width="fill_parent"
+	    android:layout_height="1dp"
+	    android:background="@color/contentColor"
+	    >
+    </RelativeLayout>
+    <Button   
+        android:id="@+id/btn_add_newfriend"
+        android:layout_width="fill_parent"  
+        android:layout_height="50dp" 
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp" 
+        android:background="@drawable/button_qianse"
+        android:text="添加新的好友"  
+        />
+	<Button 
+        android:id="@+id/btn_add_historyfrined"
+        android:layout_width="fill_parent"
+    	android:layout_height="50dp"
+    	android:layout_marginTop="16dp" 
+    	android:text="添加历史好友"
+    	android:background="@drawable/button_qianse"/>
+	 <Button
+        android:id="@+id/btn_scan_barcode"
+        android:layout_width="fill_parent"
+    	android:layout_height="50dp"
+    	android:layout_marginTop="16dp" 
+    	android:background="@drawable/button_qianse"
+        android:text="扫一扫" />
+    <Button
+        android:id="@+id/btn_your_identical"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+    	android:layout_marginTop="16dp" 
+    	android:background="@drawable/button_qianse"
+        android:text="我的二维码" />
+</LinearLayout>

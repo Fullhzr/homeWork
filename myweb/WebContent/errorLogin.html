@@ -1,0 +1,179 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>欢迎登录通路宝销售管理系统</title>
+<link rel="stylesheet" type="text/css" href="./common/img/login/css/login.css"/>
+<link rel="stylesheet" type="text/css" href="./common/plugin/easyui/themes/icon.css"/>
+<link rel="stylesheet" type="text/css" href="./common/plugin/easyui/themes/gray/easyui.css"/>
+<script type="text/javascript" src="./common/plugin/easyui/jquery.min.js"></script>
+<script type="text/javascript" src="./common/plugin/easyui/jquery.easyui.min.js"></script>
+ <script type="text/javascript" charset="utf-8" src="./common/js/md5.js"></script>
+</head>
+
+<body onkeydown="keyLogin();">
+    <div class="login_bg"> 
+        <img src="./common/img/login/login_bg_1.png" id="login_bg_img"/>
+    </div>
+    <div class="logo">
+        <img src="./common/img/login/logo.png"/>
+    </div>
+    <div class="translucent_bg">
+    </div>
+    <div class="translucent_bg2">
+    </div>
+    <div class="dialog_title">
+        <img src="./common/img/login/dialog_title.png" />
+    </div>
+    <div class="login_itembg">
+        <div class="login_item">
+        <form id="loginForm" method="post">
+        <div id="loginFalseDiv" class="item-tip" style="display:none;">账号或密码错误，请重新登录！</div>
+        <div id="loginDiv" class="item-tip" style="display: none">该账号已在其他电脑登陆！</div>
+        <div id="errorloginDiv" class="item-tip">服务器连接超时请重新登录</div>
+            <input type="text" id="Username" name="username" onfocus="focusLoign()" onblur="blurLoign()" placeholder="请输入账号" class="login_itemtext yhm" />
+            <input type="password" id="login_password" name="password" onfocus="focuspass()"  class="login_itemtext password"/>
+           </form>
+            <div style="margin:10px;">
+                <input type="submit"  id="" value="登录" onclick="login()" class="btn_style">
+                <input type="reset"  id="" value="重置" onclick="cleardata()" class="btn_style" style="margin-left:5px;">
+            </div>
+            <div class="dialog_line">
+                <p>
+                    欢迎登录通路宝销售管理系统
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="copyright">
+        &copy;2014厦门博安世通信息科技有限公司
+    </div>
+</body>
+
+<script type="text/javascript">
+function focusLoign(){
+	//$("#showMsg").html("");
+	if(  $("#Username").val() == "请输入账号" ){
+		$("#Username").val("").css({"color" : "#000"});
+	}
+}
+function blurLoign(){
+	if( $("#Username").val() == "" ||  $("#Username").val() == "请输入账号" ){
+		$("#Username").val("请输入账号").css({"color" : "#999"});
+    }
+}	
+function focuspass(){
+   $("#login_password").val("");
+}
+document.onkeydown = function(e){
+    var event = e || window.event;  
+    var code = event.keyCode || event.which || event.charCode;
+    if (code == 13) {
+        login();
+    }
+}
+$(function(){
+	var useIdCookie = getCookie("useId");
+    $('#Username').val(useIdCookie);
+    if(useIdCookie!=""){
+    	$("input[name='password']").focus();
+    }else{
+    	$("input[name='username']").focus();
+    }
+    if(window.screen.width>1366){
+        document.getElementById("login_bg_img").src="./common/img/login/login_bg.png";
+    }
+});
+function cleardata(){
+    $('#loginForm').form('clear');
+    }
+function login(){
+	var name =document.getElementById("Username").value;
+	var password =document.getElementById("login_password").value;
+     if(name=="" || password==""){
+		  $('#loginDiv').css("display","none");
+    	 $('#loginFalseDiv').css("display","block");
+    	// $("#showMsg").html("*用户名或密码为空，请输入");
+//          $("input[name='username']").focus();
+    }else{
+    	 $("#login_password").val(MD5($("#login_password").val())); //密码MD5加密            
+    	 name =document.getElementById("Username").value;
+     	 password =document.getElementById("login_password").value;
+    	 $('#loginForm').form('submit', { 
+             url:"systemUser_checkSystemUser?systemUser.name="+name+"&systemUser.password="+password, 
+                 // data:$("#loginForm").serialize(),   //序列化               
+                  error:function(request) {      // 设置表单提交出错                 
+                     // $("#showMsg").html(request);  //登录错误提示信息
+                     },
+                  success:function(data) {
+                	  var d=eval("["+data+"]");
+                	  
+                	  if(d[0].msg=="success"){
+                		  addCookie("useId",name,30);
+//                 		  addCookie("useId_half",name,1/48);
+                		  var useIdCookie = getCookie("useId");
+                		  document.location.replace("http://192.168.2.100:8080/QSS_Spatial/index.html");
+                	  }else if(d[0].msg=="login"){
+                		  $('#loginFalseDiv').css("display","none");
+                		  $('#errorloginDiv').css("display","none");
+            			  $('#loginDiv').css("display","block");
+//                 		  var useId_half = getCookie("useId_half");
+//                 		  if(useId_half!=null&&useId_half!=""){
+//                 			  document.location.replace("http://192.168.2.100:8080/QSS_Spatial/index.html");
+//                 		  }else{
+                			 
+//                 		  }
+                	  }else if(d[0].msg=="error"){
+                		  $('#loginDiv').css("display","none");
+                		  $('#errorloginDiv').css("display","none");
+                		  $('#loginFalseDiv').css("display","block");
+                	  }
+                      
+                  }            
+            });
+        } 
+}
+/**
+ * 添加cookie
+ */
+function addCookie(name,value,expiresHours){ 
+	var cookieString=name+"="+escape(value); 
+	//判断是否设置过期时间 
+	if(expiresHours>0){ 
+		var date=new Date(); 
+		date.setTime(date.getTime+expiresHours*3600*1000); 
+		cookieString=cookieString+"; expires="+date.toGMTString(); 
+	} 
+	document.cookie=cookieString; 
+} 
+/**
+ * 获取cookie
+ */
+function getCookie(name){ 
+	var strCookie=document.cookie; 
+	var arrCookie=strCookie.split("; ");
+	for(var i=0;i<arrCookie.length;i++){ 
+		var arr=arrCookie[i].split("=");
+		if(arr[0]==name){
+			return arr[1];
+		} 
+	} 
+	return ""; 
+} 
+/**
+ * 删除cookie
+ */
+function deleteCookie(name){ 
+	var date=new Date(); 
+	date.setTime(date.getTime()-10000); 
+	document.cookie=name+"=v; expires="+date.toGMTString(); 
+} 
+
+
+function keyLogin(){  
+	if (event.keyCode==13){   //回车键的键值为13  
+	     document.getElementById("input1").click(); //调用登录按钮的登录事件  
+	}
+} 
+</script>
+</html>

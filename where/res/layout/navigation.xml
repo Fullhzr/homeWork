@@ -1,0 +1,122 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/navigation_daohangback"
+    android:gravity="center"
+    android:orientation="vertical" >
+    
+	<!-- 测验区 -->
+<!--     <TextView -->
+<!--         android:id="@+id/get_str" -->
+<!--         android:layout_width="match_parent" -->
+<!--         android:layout_height="40dp" -->
+<!--         android:background="@color/white" -->
+<!--         android:padding="20dp" /> -->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:background="@color/qianhuise"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:id="@+id/luxiantuichu"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:background="@drawable/ic_arrow_back_grey600_36dp"
+            />
+
+        <ImageView
+            android:id="@+id/driver"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_alignTop="@+id/person"
+            android:layout_marginLeft="34dp"
+            android:layout_toRightOf="@+id/person"
+            android:background="@drawable/ic_local_taxi_white_36dp" />
+
+        <ImageView
+            android:id="@+id/bus"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_alignTop="@+id/luxiantuichu"
+            android:layout_marginLeft="45dp"
+            android:layout_toRightOf="@+id/luxiantuichu"
+            android:background="@drawable/ic_directions_bus_white_36dp" />
+
+        <ImageView
+            android:id="@+id/person"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_alignTop="@+id/bus"
+            android:layout_marginLeft="40dp"
+            android:layout_toRightOf="@+id/bus"
+            android:background="@drawable/ic_directions_walk_white_36dp" />
+
+    </RelativeLayout>
+    <RelativeLayout
+	    android:layout_width="fill_parent"
+	    android:layout_height="1dp"
+	    android:background="@color/contentColor"
+	    >
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <com.baidu.mapapi.map.MapView
+            android:id="@+id/m_map_view"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:clickable="true" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_margin="1dp"
+            android:orientation="horizontal" >
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/my_position"
+            android:layout_width="40dp"
+            android:layout_height="30dp"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/linearLayout1"
+            android:layout_margin="10dp"
+            android:layout_marginLeft="22dp" />
+
+        <ImageView
+            android:id="@+id/next"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_alignRight="@+id/linearLayout1"
+            android:layout_below="@+id/my_position"
+            android:layout_marginRight="18dp"
+            android:background="@drawable/ic_btn_up"
+            android:padding="20dp"
+            android:text="下一条" />
+
+        <ImageView
+            android:id="@+id/pre"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_alignBottom="@+id/my_position"
+            android:layout_alignLeft="@+id/next"
+            android:background="@drawable/ic_btn_down"
+            android:padding="20dp"
+            android:text="上一条"
+            android:textColor="@color/red"
+            android:textColorHint="@color/white" />
+
+    </RelativeLayout>
+
+</LinearLayout>

@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2014-10-24 10:25:26 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+ <class name="com.xmbestone.qss.request_control.po.RequestControl" table="request_control">
+	   <id name="requestId" type="int">
+		<column name="request_id"/>
+		<generator class="native"/><!-- assigned String -->
+	   </id>
+	   <property name="monitorUser" type="int">
+		<column name="monitor_user"/>
+	   </property>
+	   <property name="bemonitorUser" type="int">
+		<column name="bemonitor_user"/>
+	   </property>	   	   
+	   <property generated="never" lazy="false" name="requestTime" type="java.lang.String">
+	   	<column name="request_time" />
+	   </property>
+	    <property generated="never" lazy="false" name="status" type="java.lang.String">
+	   	<column name="status"/>
+	   </property>
+ 
+    </class>
+</hibernate-mapping>

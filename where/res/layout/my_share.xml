@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="#ebebeb" >
+    <RelativeLayout 
+	    android:layout_width="fill_parent"
+	    android:layout_height="52dp"
+	    android:orientation="horizontal"
+	    android:background="@color/qianhuise" >
+	
+	    <TextView
+	        android:id="@+id/textView1"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_centerInParent="true"
+	        android:text="分享"
+	        android:textSize="22sp"
+	        android:textColor="@color/shenhuise" />
+	
+	    <ImageView
+		        android:id="@+id/back_myhistory"
+		        android:layout_width="36dp"
+		        android:layout_height="36dp"
+		        android:layout_alignParentLeft="true"
+		        android:layout_centerVertical="true"
+		        android:layout_marginLeft="15dp"
+		        android:src="@drawable/ic_arrow_back_grey600_36dp"
+		        android:onClick="getBackClick"  
+		        android:contentDescription="@string/back"/>
+	    
+	     <TextView
+	        	android:id="@+id/refresh2"
+	       	    android:layout_width="30dp"
+		        android:layout_height="wrap_content"
+		        android:layout_alignParentRight="true"
+		        android:layout_centerVertical="true"
+		        android:layout_marginRight="15dp"
+	        	android:text="刷新"
+	        	android:textColor="@color/shenhuise" 
+	        	android:onClick="getRefreshClick"/>
+     </RelativeLayout>
+     	<RelativeLayout
+	    android:layout_width="fill_parent"
+	    android:layout_height="1dp"
+	    android:background="@color/contentColor"
+	    >
+    </RelativeLayout>
+</LinearLayout>

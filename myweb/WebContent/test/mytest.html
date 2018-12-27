@@ -1,0 +1,140 @@
+
+<meta charset="UTF-8">
+<div >
+	<table id="testTable" class="easyui-datagrid" style="height:300px;width:800px" data-options="fitColumns:true" toolbar="#testToolbar">
+		<thead>
+			<th field="id" width="50px">序号</th>
+			<th field="stuName" width="50px">姓名</th>
+			<th field="stuNo" width="60px">学号</th>
+		</thead>
+	
+	</table>
+	<div id="testToolbar" style="height:52px">
+	<input id="cc" class="easyui-combobox" name="dept"   
+    data-options="valueField:'id',textField:'text'" /> 
+		<a id="testAddBtn" class="easyui-linkbutton" onclick="testadd()">新增</a>
+		<a id="testDelBtn" class="easyui-linkbutton" onclick="testdelete()">删除</a>
+		<a id="testOpenBtn" class="easyui-linkbutton" onclick="testopenwin()">打开弹窗</a>
+	</div>
+	
+	<hr>
+	<div>
+		<form id="studentForm" method="post">
+			<input id="stuId" name ="student.id" class="easyui-validatebox"/>
+			姓名：<input id="stuName" name ="student.stuName" class="easyui-validatebox"/>
+			学号：<input id="stuNo" name ="student.stuNo" class="easyui-validatebox" />
+		</form>
+		<a id="testAddBtn" class="easyui-linkbutton" onclick="testsave()">新增</a>
+		
+	</div>
+</div>
+	
+<div id="win" closed="true" class="easyui-window" title="My Window" style="width:600px;height:400px"   
+        data-options="iconCls:'icon-save',modal:true">   
+        <a class="easyui-linkbutton" onclick="$('#win').window('close')">新增</a>
+</div>  
+<script type="text/javascript">
+/**
+ * 打开弹出框
+ */
+	function testopenwin(){
+	
+		$('#win').window('open');
+	}
+/**
+ * 删除
+ */
+	function testdelete(){
+	var data = $('#testTable').datagrid('getSelected');
+	var param = "student.id="+data.id;
+		$.ajax({ 
+ 			type : "POST",
+			data:param,
+ 			dataType : "json",
+ 			url :"student_delete",
+ 			success : function(data){
+ 				alert(data.msg)
+				if(data.msg == "success"){
+					alert("成功")
+					testLoadData()
+				} 
+
+ 		    } 
+ 		})
+	}
+	
+/**
+ * 新增
+ */
+	function testadd(){
+		$('#studentForm').form('clear');
+
+	}
+/**
+ * 保存
+ */
+	function testsave(){
+		$('#studentForm').form('submit', {
+			url:"student_save",    
+			onSubmit: function(data){
+				$.messager.progress();
+				var isValid = $(this).form('validate');
+				if (!isValid){
+					$.messager.progress('close');	
+				}
+				return isValid;	
+			},
+			success: function(data){ 
+				$.messager.progress('close');
+				testLoadData()
+				alert("完成")
+			}    
+		}); 
+	}
+
+/**
+ * 获得学生数据并加载
+ */
+ 	function testLoadData(){
+ 		$.ajax({ 
+ 			type : "POST",
+ 			dataType : "json",
+ 			url :"student_list",
+ 			
+ 			success : function(data){
+				var d = eval("["+data+"]");
+				  $('#testTable').datagrid({
+						data:d[0].list,
+						    
+				  });
+
+ 		    } 
+ 		})
+	}
+	function testcombobox(){
+		$('#cc').combobox({
+			data:[{    
+			    "id":1,    
+			    "text":"text1"   
+			},{    
+			    "id":2,    
+			    "text":"text2"   
+			},{    
+			    "id":3,    
+			    "text":"text3",    
+			    "selected":true   
+			},{    
+			    "id":4,    
+			    "text":"text4"   
+			},{    
+			    "id":5,    
+			    "text":"text5"   
+			}],
+		})
+	}
+	$(function(){
+		testLoadData()
+		testcombobox()
+	})
+</script>
+

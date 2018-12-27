@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	       http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	       http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context-2.5.xsd
+           http://www.springframework.org/schema/aop
+           http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+           http://www.springframework.org/schema/tx 
+           http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+	
+	
+	
+	
+	<!--- sessionFactory -->
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="configLocation" value="classpath:hibernate.cfg.xml" />
+	</bean>
+	
+	<bean id="imageFolderConfiguration" class="com.xmbestone.qss.util.FolderConfiguration" scope="singleton">
+		<property name="terminalDeviceImageFolder" value="C:\Users\Administrator\workspace\QSS_Spatial\WebContent\image\terminalDevice" />
+		<property name="personImageFolder" value="D:\image\personDevice\" />
+		<property name="goodsImageFolder" value="D:\image\goodsDevice\" />
+		<property name="tempFileFolder" value="C:\Users\Administrator\workspace\QSS_Spatial\WebContent\temp\" />
+	</bean>
+	
+	
+ 	<!-- terminalDeviceClassify -->
+	<bean id="terminalDeviceClassify" class="com.xmbestone.qss.baseinfo.po.TerminalDeviceClassify" scope="prototype" />
+
+	<bean id="terminalDeviceClassifyDao" class="com.xmbestone.qss.baseinfo.dao.TerminalDeviceClassifyDao" scope="prototype" autowire="default" >
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	
+	<!-- terminalDevice -->
+	<bean id="terminalDevice" class="com.xmbestone.qss.baseinfo.po.TerminalDevice" scope="prototype" />
+
+    <bean id="terminalDeviceDao" class="com.xmbestone.qss.baseinfo.dao.TerminalDeviceDao" scope="prototype" >
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	
+	<!-- terminalDeviceStatus -->
+	<bean id="terminalDeviceStatus" class="com.xmbestone.qss.baseinfo.po.TerminalDeviceStatus" scope="prototype" />
+	
+	<bean id="terminalDeviceStatusDao" class="com.xmbestone.qss.baseinfo.dao.TerminalDeviceStatusDao" scope="prototype" >
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	
+	<!-- terminalDeviceImage -->
+	<bean id="terminalDeviceImage" class="com.xmbestone.qss.baseinfo.po.TerminalDeviceImage" scope="prototype" />
+	
+	<bean id="terminalDeviceImageDao" class="com.xmbestone.qss.baseinfo.dao.TerminalDeviceImageDao" scope="prototype" >
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	
+	<bean id="terminalDeviceImageBo" class="com.xmbestone.qss.baseinfo.bo.impl.TerminalDeviceImageBoImpl" scope="prototype" autowire="byName">
+		
+	</bean>
+	
+	<!-- terminalDeviceUsage -->
+	<bean id="terminalDeviceUsage" class="com.xmbestone.qss.baseinfo.po.TerminalDeviceUsage" scope="prototype" />
+	
+	<bean id="terminalDeviceUsageDao" class="com.xmbestone.qss.baseinfo.dao.TerminalDeviceUsageDao" scope="prototype" >
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	
+	<!-- department -->
+	<bean id="department" class="com.xmbestone.qss.baseinfo.po.Department" scope="prototype" />
+	
+	<bean id="departmentDao" class="com.xmbestone.qss.baseinfo.dao.DepartmentDao" scope="prototype" >
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	
+	<!-- person -->
+	<bean id="person" class="com.xmbestone.qss.baseinfo.po.Person" scope="prototype" />
+	
+	<bean id="personDao" class="com.xmbestone.qss.baseinfo.dao.PersonDao" scope="prototype" >
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	
+	<!-- personImage -->
+	<bean id="personImage" class="com.xmbestone.qss.baseinfo.po.PersonImage" scope="prototype" />
+	
+	<bean id="personImageDao" class="com.xmbestone.qss.baseinfo.dao.PersonImageDao" scope="prototype" >
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	
+	<!-- goodsClassify -->
+	<bean id="goodsClassify" class="com.xmbestone.qss.baseinfo.po.GoodsClassify" scope="prototype" />
+	
+	<bean id="goodsClassifyDao" class="com.xmbestone.qss.baseinfo.dao.GoodsClassifyDao" scope="prototype" >
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	
+	
+	<!-- goods -->
+	<bean id="goods" class="com.xmbestone.qss.baseinfo.po.Goods" scope="prototype" />
+	
+	<bean id="goodsDao" class="com.xmbestone.qss.baseinfo.dao.GoodsDao" scope="prototype" >
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	
+	
+	<!-- goodsImage -->
+	<bean id="goodsImage" class="com.xmbestone.qss.baseinfo.po.GoodsImage" scope="prototype" />
+	
+	<bean id="goodsImageDao" class="com.xmbestone.qss.baseinfo.dao.GoodsImageDao" scope="prototype" >
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	
+	<!-- questionnairesClassify -->
+	<bean id="questionnairesClassify" class="com.xmbestone.qss.baseinfo.po.QuestionnairesClassify" scope="prototype" />
+	
+	<bean id="questionnairesClassifyDao" class="com.xmbestone.qss.baseinfo.dao.QuestionnairesClassifyDao" scope="prototype" >
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	
+	<!-- questionnaires -->
+	<bean id="questionnaires" class="com.xmbestone.qss.baseinfo.po.Questionnaires" scope="prototype" />
+	
+	<bean id="questionnairesDao" class="com.xmbestone.qss.baseinfo.dao.QuestionnairesDao" scope="prototype" >
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	
+	<!-- QuestionnairesSubject -->
+	<bean id="questionnairesSubject" class="com.xmbestone.qss.baseinfo.po.QuestionnairesSubject" scope="prototype" />
+	
+	<bean id="questionnairesSubjectDao" class="com.xmbestone.qss.baseinfo.dao.QuestionnairesSubjectDao" scope="prototype" >
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	
+	<!-- CustomerClassify -->
+	<bean id="customerClassify" class="com.xmbestone.qss.baseinfo.po.CustomerClassify" scope="prototype" />
+	
+	<bean id="customerClassifyDao" class="com.xmbestone.qss.baseinfo.dao.CustomerClassifyDao" scope="prototype" >
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	
+	<!-- Customer -->
+	
+	<bean id="customerDao" class="com.xmbestone.qss.baseinfo.dao.CustomerDao" scope="prototype" >
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	
+	<bean id="customer" class="com.xmbestone.qss.baseinfo.po.Customer" scope="prototype" />
+	
+	<!-- CustomerDealer -->
+	<bean id="customerDealer" class="com.xmbestone.qss.baseinfo.po.CustomerDealer" scope="prototype" />
+	
+	<bean id="customerDealerDao" class="com.xmbestone.qss.baseinfo.dao.CustomerDealerDao" scope="prototype" >
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+			
+	<!-- CustomerStore -->
+	<bean id="customerStore" class="com.xmbestone.qss.baseinfo.po.CustomerStore" scope="prototype" />
+	
+	<bean id="customerStoreDao" class="com.xmbestone.qss.baseinfo.dao.CustomerStoreDao" scope="prototype" >
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+
+	<!-- DealerContactPerson -->
+	<bean id="dealerContactPerson" class="com.xmbestone.qss.baseinfo.po.DealerContactPerson" scope="prototype" />
+	
+	<bean id="dealerContactPersonDao" class="com.xmbestone.qss.baseinfo.dao.DealerContactPersonDao" scope="prototype" >
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	
+	<!-- StoreContactPerson -->
+	<bean id="storeContactPerson" class="com.xmbestone.qss.baseinfo.po.StoreContactPerson" scope="prototype" />
+	
+	<bean id="storeContactPersonDao" class="com.xmbestone.qss.baseinfo.dao.StoreContactPersonDao" scope="prototype" >
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	
+	<!-- Page -->
+	<bean id = "page" class="com.xmbestone.qss.util.Page" scope="prototype" autowire="byName" />
+	
+
+	
+
+</beans>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	       http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	       http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context-2.5.xsd
+           http://www.springframework.org/schema/aop
+           http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+           http://www.springframework.org/schema/tx 
+           http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+ 
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"/>
+        <property name="mappingResources">
+         <list>                
+<!-- 			<value>com/xmbestone/qss/system/po/Users.hbm.xml</value> -->
+			<value>com/xmbestone/qss/historyview/po/Historyview.hbm.xml</value>
+			<value>com/xmbestone/qss/real_position/po/RealPosition.hbm.xml</value>			
+			<value>com/xmbestone/qss/distance_alert/po/DistanceAlert.hbm.xml</value>			
+			<value>com/xmbestone/qss/history_info/po/HistoryInfo.hbm.xml</value>
+			<value>com/xmbestone/qss/history_note/po/HistoryNote.hbm.xml</value>			
+			<value>com/xmbestone/qss/request_control/po/RequestControl.hbm.xml</value>
+			<value>com/xmbestone/qss/users/po/Users.hbm.xml</value>					
+		 </list>
+        </property>
+        <property name="hibernateProperties">
+            <value>
+                dialect=org.hibernate.dialect.MySQLDialect
+                hibernate.show_sql=true
+                hibernate.dialect=org.hibernate.spatial.dialect.mysql.MySQLSpatial5InnoDBDialect
+            </value>
+        </property>
+    
+	</bean>
+	
+	<!-- Transaction manager -->
+	<bean id="myTxManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+	    <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+	    <property name="url" value="jdbc:mysql://127.0.0.1/wheresystem" />
+	    <property name="username" value="root" />
+	    <property name="password" value="root" />
+    </bean>
+
+    <aop:config>
+        <aop:pointcut id="boMethods"
+                expression="execution(* com.xmbestone.qss.*.bo.*.*(..))"/>
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="boMethods"/>
+    </aop:config>
+
+    <tx:advice id="txAdvice" transaction-manager="myTxManager">
+        <tx:attributes>
+            <tx:method name="save*" propagation="REQUIRED"/>
+            <tx:method name="list*" propagation="REQUIRED"/>
+            <tx:method name="find*" propagation="REQUIRED"/>
+            <tx:method name="delete*" propagation="REQUIRED"/>
+            <tx:method name="update*" propagation="REQUIRED"/>
+            <tx:method name="get*" propagation="REQUIRED"/>
+        </tx:attributes>
+    </tx:advice>
+    
+    
+    
+   </beans>

@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2014-10-24 10:25:26 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+ <class name="com.xmbestone.qss.distance_alert.po.DistanceAlert" table="distance_alert">
+	   <id name="alarmId" type="int">
+		<column name="alarm_id"/>
+		<generator class="native"/>
+	   </id>
+ 	   <property name="historyInfoId" type="int">
+		<column name="history_info_id"/> 
+	   </property>
+	    <property generated="never" lazy="false" name="alarmTime" type="java.util.Date">
+	   	<column name="alarm_time" not-null="true"/>
+	   </property>
+    </class>
+</hibernate-mapping>

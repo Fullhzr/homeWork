@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.where"
+    android:versionCode="1"
+    android:versionName="1.0" >
+<supports-screens android:largeScreens="true"
+            android:normalScreens="true"
+            android:smallScreens="true"
+            android:resizeable="true"
+            android:anyDensity="true"/>
+    
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="19" />
+    
+	<!--百度地图权限 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    
+    
+    <!--蛋蛋 振动闹铃权限-->
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    
+    
+    
+    
+        <!-- 蛋蛋 二維碼权限 -->
+    <uses-permission android:name="android.permission.VIBRATE" /> <!-- 震动权限 -->
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature android:name="android.hardware.camera" /> <!-- 使用照相机权限 -->
+    <uses-feature android:name="android.hardware.camera.autofocus" /> <!-- 自动聚焦权限 -->
+
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" />
+
+    <permission android:name="android.permission.BAIDU_LOCATION_SERVICE" >
+    </permission>
+
+    <uses-permission android:name="android.permission.BAIDU_LOCATION_SERVICE" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.INTERNET" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" >
+    </uses-permission>
+    <!-- <uses-permission android:name="android.permission.WRITE_APN_SETTINGS"></uses-permission> -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" >
+    </uses-permission>
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_GPS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <!-- SDK1.5需要android.permission.GET_TASKS权限判断本程序是否为当前运行的应用? -->
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.CAMERA" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.RECORD_AUDIO" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.BROADCAST_STICKY" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <!-- 来电消音 -->
+    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    
+    
+    
+    
+    
+    
+    
+    <!-- 这个权限用于进行网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" >
+    </uses-permission>
+    <!-- 这个权限用于访问GPS定位 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" >
+    </uses-permission>
+    <!-- 用于访问wifi网络信息，wifi信息会用于进行网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" >
+    </uses-permission>
+    <!-- 获取运营商信息，用于支持提供运营商信息相关的接口 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" >
+    </uses-permission>
+    <!-- 这个权限用于获取wifi的获取权限，wifi信息会用来进行网络定位 -->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" >
+    </uses-permission>
+    <!-- 用于读取手机当前的状态 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" >
+    </uses-permission>
+    <!-- 写入扩展存储，向扩展卡写入数据，用于写入离线定位数据 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" >
+    </uses-permission>
+    <!-- 访问网络，网络定位需要上网 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- SD卡读取权限，用户写入离线定位数据 -->
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" >
+    </uses-permission>
+    <!-- 允许应用读取低级别的系统日志文件 -->
+    <uses-permission android:name="android.permission.READ_LOGS" >
+    </uses-permission>
+    
+	<!--通讯录权限 -->
+    <uses-permission android:name="android.permission.READ_CONTACTS" /> 
+    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
+<!--    -->
+    <application
+        
+        android:name="com.example.where.DemoApplication" 
+        android:allowBackup="true"
+        android:icon="@drawable/wherelogo666"
+        android:label="@string/app_name"
+        android:theme="@style/mytitle" >
+        
+        <activity
+            android:name="com.example.where.MainMapActivity"
+            android:label="@string/app_name" android:theme="@android:style/Theme.NoTitleBar">
+           	
+<!--            	<intent-filter> -->
+<!--                 <action android:name="android.intent.action.MAIN" /> -->
+
+<!--                 <category android:name="android.intent.category.LAUNCHER" /> -->
+<!--             </intent-filter> -->
+        </activity>
+        <activity
+            android:name="com.example.where.functionall.MainActivity"
+            android:label="@string/app_name" android:theme="@android:style/Theme.NoTitleBar">
+        </activity>
+            <activity
+            android:name="com.example.where.PanoramaActivity"
+            android:label="@string/app_name" 
+            android:theme="@android:style/Theme.NoTitleBar"
+             android:hardwareAccelerated="false">
+          
+        </activity>
+        <activity
+            android:name="com.example.where.addperson.AddNewPerson"
+            android:label="@string/app_name" android:theme="@android:style/Theme.NoTitleBar">
+              
+        </activity>
+        <activity
+            android:name="com.example.where.addperson.AddPerson"
+            android:label="@string/app_name" android:theme="@android:style/Theme.NoTitleBar">
+        </activity>
+        <activity
+            android:name="com.example.where.addperson.AddHistoryPerson"
+            android:label="@string/app_name" android:theme="@android:style/Theme.NoTitleBar">
+        </activity>
+        <activity
+            android:name="com.example.where.history.HistoryMainActivity"
+            android:label="@string/app_name" android:theme="@android:style/Theme.NoTitleBar">
+        </activity>
+           <activity
+            android:name="com.example.where.addperson.DimensionalQrself"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.NoTitleBar" >
+        </activity>
+        <activity
+            android:name="com.example.where.addperson.DimensionalResult"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.NoTitleBar" >
+        </activity>
+        
+         <activity
+            android:name="com.example.where.zxing.activity.CaptureActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar"
+            android:windowSoftInputMode="stateAlwaysHidden" >
+        </activity>
+        
+        <activity
+            android:name="com.example.where.history.HistoryMainMapActivity"
+            android:label="@string/app_name" android:theme="@android:style/Theme.NoTitleBar">
+        </activity>
+         <activity
+            android:name="com.example.where.history.HistoryMap"
+            android:label="@string/app_name" android:theme="@android:style/Theme.NoTitleBar">
+<!--               	<intent-filter> -->
+<!--                 <action android:name="android.intent.action.MAIN" /> -->
+
+<!--                 <category android:name="android.intent.category.LAUNCHER" /> -->
+<!--             </intent-filter>            -->
+        </activity>
+        <activity
+            android:name="com.example.where.distance.JuliGanYingActivity"
+            android:label="@string/app_name"
+             android:theme="@android:style/Theme.NoTitleBar"
+            android:hardwareAccelerated="false">
+
+        </activity>
+           <activity
+            android:name="com.example.where.distance.JuliMainActivity"
+            android:label="@string/app_name" android:theme="@android:style/Theme.NoTitleBar">
+        </activity>
+        <activity
+            android:name="com.example.where.distance.JuliSheZhiActivity"
+            android:label="@string/app_name" android:theme="@android:style/Theme.NoTitleBar">
+              
+        </activity>
+        <activity
+            android:name="com.example.where.navigation.NavigationActivity"
+            android:label="@string/app_name" android:theme="@android:style/Theme.NoTitleBar">
+        </activity>
+       
+         <activity
+            android:name="com.example.where.login.LoginActivity"
+            android:label="@string/app_name" android:theme="@android:style/Theme.NoTitleBar">
+<!--      		<intent-filter> -->
+<!--                 <action android:name="android.intent.action.MAIN" /> -->
+
+<!--                 <category android:name="android.intent.category.LAUNCHER" /> -->
+<!--             </intent-filter> -->
+        </activity>
+        <activity
+            android:name="com.example.where.login.FirstPageActivity"
+            android:label="@string/app_name" android:theme="@android:style/Theme.NoTitleBar">
+     		<intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.where.login.LoginCircularImage"
+            android:label="@string/app_name" android:theme="@android:style/Theme.NoTitleBar">
+        </activity>
+                 <activity
+            android:name="com.example.where.login.LoginMaskedImage"
+            android:label="@string/app_name" android:theme="@android:style/Theme.NoTitleBar">
+        </activity>
+                 <activity
+            android:name="com.example.where.login.LoginRegister"
+            android:label="@string/app_name" android:theme="@android:style/Theme.NoTitleBar">
+        </activity>  
+<!--    SelectPicPopupWindow 对被定位者 三大操作    作者：石头    time：20150825  12:10 -->
+        <activity
+            android:name="com.example.where.SelectPicPopupWindow"
+            android:label="@string/app_name" android:theme="@style/MyDialogStyleBottom">
+        </activity>  
+         <activity
+            android:name="com.example.where.mymenu.MyMessage"
+            android:label="@string/app_name" android:theme="@android:style/Theme.NoTitleBar">
+        </activity>  
+        <activity
+            android:name="com.example.where.mymenu.MyMenu"
+            android:label="@string/app_name" android:theme="@android:style/Theme.NoTitleBar">
+            
+        </activity> 
+         <activity
+            android:name="com.example.where.mymenu.MyInformation"
+            android:label="@string/app_name" android:theme="@android:style/Theme.NoTitleBar">
+            
+        </activity> 
+        <activity
+            android:name="com.example.where.mymenu.MyHistory"
+            android:label="@string/app_name" android:theme="@android:style/Theme.NoTitleBar">
+        </activity> 
+        <activity
+            android:name="com.example.where.mymenu.MyAdvice"
+            android:label="@string/app_name" android:theme="@android:style/Theme.NoTitleBar">
+        </activity> 
+        <activity
+            android:name="com.example.where.mymenu.MySetting"
+            android:label="@string/app_name" android:theme="@android:style/Theme.NoTitleBar">
+        </activity> 
+        
+        <!-- 图片选择 -->
+        <activity
+            android:name=".picture.ImgFileListActivity"
+            android:launchMode="standard"
+            android:screenOrientation="portrait" />
+        <!-- 显示图片 -->
+        <activity
+            android:name=".picture.ImgsActivity"
+            android:launchMode="standard"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.example.where.mymenu.MyShare"
+            android:label="@string/app_name" android:theme="@android:style/Theme.NoTitleBar">
+        </activity> 
+		<!--开发密钥  -->
+<!--         <meta-data -->
+<!--             android:name="com.baidu.lbsapi.API_KEY" -->
+<!--             android:value="kKOmsgdmyCywpD242Lb3nhjz" /> -->
+		<!--石头key -->
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="kKOmsgdmyCywpD242Lb3nhjz" />
+        <!--蛋蛋key -->
+<!--         android:value="kKOmsgdmyCywpD242Lb3nhjz" /> -->
+        <!--阿乐key -->
+<!--         android:value="kKOmsgdmyCywpD242Lb3nhjz" /> -->
+        <!--红红key -->
+<!--         android:value="kKOmsgdmyCywpD242Lb3nhjz" /> -->
+        <!--葱哥key -->
+<!--         android:value="kKOmsgdmyCywpD242Lb3nhjz" /> -->
+        <receiver android:name="com.example.newcheshi.alarmmanager_test.AlarmReceiver" >
+        </receiver>
+    </application>
+</manifest>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/backColor" >
+    <RelativeLayout 
+	    android:layout_width="fill_parent"
+	    android:layout_height="52dp"
+	    android:orientation="horizontal"
+	    android:background="@color/qianhuise" >
+	    <TextView
+	        android:id="@+id/addnewfriend"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_centerInParent="true"
+	        android:text="添加新的好友"
+	        android:textColor="@color/shenhuise" 
+	        android:textSize="22sp"
+	        />
+	    <ImageView
+	        android:id="@+id/back_add_newfriend"
+	        android:layout_width="36dp"
+	        android:layout_height="36dp"
+	        android:layout_alignParentLeft="true"
+	        android:layout_centerVertical="true"
+	        android:layout_marginLeft="15dp"
+	        android:src="@drawable/ic_arrow_back_grey600_36dp"
+	        android:onClick="getBackClick" />
+	</RelativeLayout>
+	<RelativeLayout
+	    android:layout_width="fill_parent"
+	    android:layout_height="1dp"
+	    android:background="@color/contentColor"
+	    >
+    </RelativeLayout>
+    <RelativeLayout
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:background="@color/qianhuise"
+	    android:layout_marginTop="30dp"
+	    >
+	      <EditText 
+	        android:id="@+id/add_newperson"
+	        android:layout_width="fill_parent"
+	    	android:layout_height="50dp"
+	    	android:layout_marginLeft="35dp"
+	    	android:hint="请输入手机号码"
+	    	android:background="@color/qianhuise"
+	    	/> 
+	   	   
+    </RelativeLayout>
+    <Button   
+        android:id="@+id/btn_choose_preson"
+        android:layout_width="fill_parent"  
+        android:layout_height="50dp"  
+        android:layout_marginTop="16dp"
+        android:text="选择通讯录联系人"  
+        android:onClick="getTelClick"
+        android:background="@drawable/button_qianse"  
+        />
+	<Button 
+        android:id="@+id/addnew_ok_btn"
+        android:layout_width="fill_parent"
+    	android:layout_height="50dp"
+    	android:layout_marginTop="16dp"
+    	android:onClick="showAlertDialog"
+    	android:text="确定"
+    	android:src="@drawable/ic_arrow_back_grey600_36dp"
+    	android:background="@drawable/button_qianse"/>
+</LinearLayout>

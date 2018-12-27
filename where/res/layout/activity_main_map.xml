@@ -1,0 +1,85 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:arc="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:gravity="center"
+    android:orientation="vertical" >
+	<!-- title -->
+	<RelativeLayout
+	    android:layout_width="fill_parent"
+	    android:layout_height="52dp"
+	    android:orientation="horizontal"
+	    android:background="@color/qianhuise"
+	    >
+	    <TextView
+	        android:id="@+id/zainaer"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_centerInParent="true"
+	        android:text="@string/app_name"
+	        android:textColor="@color/shenhuise"
+	        android:textSize="22sp" />
+	    <ImageView
+	        android:id="@+id/setup"
+	        android:layout_width="36dp"
+	        android:layout_height="36dp"
+	        android:layout_alignParentLeft="true"
+	        android:layout_centerVertical="true"
+	        android:layout_marginLeft="15dp"
+	        android:src="@drawable/ic_account_circle_grey1600_48dp"
+	        android:onClick="getMyClick" />
+	    <ImageView
+		        android:id="@+id/add"
+		        android:layout_width="36dp"
+		        android:layout_height="36dp"
+	            android:layout_centerVertical="true"
+		        android:layout_alignParentRight="true"
+		        android:layout_marginRight="15dp"
+		        android:onClick="getAddPerson"
+		        android:src="@drawable/ic_add_circle_outline_grey600_24dp" />
+	</RelativeLayout>
+	<RelativeLayout
+	    android:layout_width="fill_parent"
+	    android:layout_height="1dp"
+	    android:background="@color/contentColor"
+	    >
+    </RelativeLayout>
+
+	<!-- 	地图 -->
+	<RelativeLayout 
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content">
+	    <com.baidu.mapapi.map.MapView
+	        android:id="@+id/wheremap"
+	        android:layout_width="fill_parent"
+	        android:layout_height="fill_parent"
+	        android:clickable="true" />
+
+		<RelativeLayout
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:layout_marginBottom="16dp"
+		    android:layout_marginRight="16dp" >
+
+		    <RelativeLayout
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_centerHorizontal="true"
+		        android:layout_marginTop="35dp" >
+		    </RelativeLayout>
+		  
+		</RelativeLayout>
+
+		<com.example.where.functionall.ArcMenu
+		    android:id="@+id/arc_menu_111"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_alignParentBottom="true"
+		    android:layout_centerHorizontal="true"
+		    arc:childSize="@dimen/menuChildSize"
+		    arc:fromDegrees="@dimen/menuFromDegrees"
+		    arc:toDegrees="@dimen/menuToDegrees" >
+		</com.example.where.functionall.ArcMenu>
+		  
+	</RelativeLayout>
+</LinearLayout>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical" >
+        <RelativeLayout 
+    android:layout_width="fill_parent"
+    android:layout_height="52dp"
+    android:orientation="horizontal"
+    android:background="@color/qianhuise" >
+	    <TextView
+	        android:id="@+id/scan_results"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_centerInParent="true"
+	        android:text="你的二维码"
+	        android:textColor="@color/shenhuise"
+	        android:textSize="22sp" />
+	    <ImageView
+	        android:id="@+id/back_addfriend"
+	        android:layout_width="36dp"
+	        android:layout_height="36dp"
+	        android:layout_alignParentLeft="true"
+	        android:layout_centerVertical="true"
+	        android:layout_marginLeft="15dp"
+	        android:onClick="getBackClick"
+	        android:src="@drawable/ic_arrow_back_grey600_36dp" />
+	</RelativeLayout>
+    
+
+    <ImageView 
+        android:id="@+id/iv_qr_image"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"/>
+    
+</LinearLayout>

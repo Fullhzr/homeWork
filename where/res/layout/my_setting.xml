@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="@color/backColor" >
+	<RelativeLayout 
+	    android:layout_width="fill_parent"
+	    android:layout_height="52dp"
+	    android:orientation="horizontal"
+	    android:background="@color/qianhuise">
+	
+	    <TextView
+	        android:id="@+id/setup111"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_centerInParent="true"
+	        android:text="设置"
+	        android:textColor="@color/shenhuise" 
+	        android:textSize="22sp" />
+	
+	    <ImageView
+		        android:id="@+id/back_myMenu_setting"
+		        android:layout_width="30dp"
+		        android:layout_height="wrap_content"
+		        android:layout_alignParentLeft="true"
+		        android:layout_centerVertical="true"
+		        android:layout_marginLeft="15dp"
+		        android:src="@drawable/ic_arrow_back_grey600_36dp"
+		        android:onClick="getBackClick"  
+		        android:contentDescription="@string/back"/>
+	    
+     </RelativeLayout>
+	<RelativeLayout
+	    android:layout_width="fill_parent"
+	    android:layout_height="1dp"
+	    android:background="@color/contentColor"
+	    
+	    >
+    </RelativeLayout>
+    <RelativeLayout
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:background="@color/qianhuise"
+	    android:layout_marginTop="30dp"
+	    >
+	    <TextView 
+	        android:id="@+id/refrsh_time"
+	        android:layout_width="fill_parent"
+	    	android:layout_height="48dp"
+	    	android:layout_marginLeft="35dp"
+	    	android:hint="更新频率"
+	    	android:textColor="@color/shenhuise" 
+	        android:textSize="18sp"
+	    	android:gravity="center_vertical"
+	    	android:background="@color/qianhuise"/>
+	    <ImageView
+	        android:id="@+id/ic_right_refrsh"
+	        android:layout_width="24dp"
+	        android:layout_height="24dp"
+	        android:layout_alignParentRight="true"
+	        android:layout_centerVertical="true"
+	        android:layout_marginRight="15dp"
+	        android:src="@drawable/ic_right_48dp"
+	        android:onClick="getBackClick" />
+	    
+    </RelativeLayout>
+    <RelativeLayout
+	    android:layout_width="fill_parent"
+	    android:layout_height="1dp"
+	    android:background="@color/contentColor"
+	    
+	    >
+    </RelativeLayout>
+     <RelativeLayout
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:background="@color/qianhuise"
+	    >
+	    <TextView 
+	        android:id="@+id/message_alert"
+	        android:layout_width="fill_parent"
+	    	android:layout_height="48dp"
+	    	android:layout_marginLeft="35dp"
+	    	android:hint="信息提醒"
+	    	android:textColor="@color/shenhuise" 
+	        android:textSize="18sp"
+	    	android:gravity="center_vertical"
+	    	android:background="@color/qianhuise"/>
+	    <ImageView
+	        android:id="@+id/ic_message_alert"
+	        android:layout_width="24dp"
+	        android:layout_height="24dp"
+	        android:layout_alignParentRight="true"
+	        android:layout_centerVertical="true"
+	        android:layout_marginRight="15dp"
+	        android:src="@drawable/ic_right_48dp"
+	        android:onClick="getBackClick" />
+    </RelativeLayout>
+    <RelativeLayout
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:background="@color/qianhuise"
+	    android:layout_marginTop="10dp"
+	    >
+	    <TextView 
+	        android:id="@+id/contack_secret"
+	        android:layout_width="fill_parent"
+	    	android:layout_height="48dp"
+	    	android:layout_marginLeft="35dp"
+	    	android:hint="联系人、隐私"
+	    	android:textColor="@color/shenhuise" 
+	        android:textSize="18sp"
+	    	android:gravity="center_vertical"
+	    	android:background="@color/qianhuise"/>
+	    <ImageView
+	        android:id="@+id/ic_contack_secret"
+	        android:layout_width="24dp"
+	        android:layout_height="24dp"
+	        android:layout_alignParentRight="true"
+	        android:layout_centerVertical="true"
+	        android:layout_marginRight="15dp"
+	        android:src="@drawable/ic_right_48dp"
+	        android:onClick="getBackClick" />
+    </RelativeLayout>
+    <RelativeLayout
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:background="@color/qianhuise"
+	    android:layout_marginTop="10dp"
+	    >
+	    <TextView 
+	        android:id="@+id/about_and_help"
+	        android:layout_width="fill_parent"
+	    	android:layout_height="48dp"
+	    	android:layout_marginLeft="35dp"
+	    	android:hint="关于我们与帮助"
+	    	android:textColor="@color/shenhuise" 
+	        android:textSize="18sp"
+	    	android:gravity="center_vertical"
+	    	android:background="@color/qianhuise"/>
+	    <ImageView
+	        android:id="@+id/ic_about_and_help"
+	        android:layout_width="24dp"
+	        android:layout_height="24dp"
+	        android:layout_alignParentRight="true"
+	        android:layout_centerVertical="true"
+	        android:layout_marginRight="15dp"
+	        android:src="@drawable/ic_right_48dp"
+	        android:onClick="getBackClick" />
+    </RelativeLayout>
+
+</LinearLayout>

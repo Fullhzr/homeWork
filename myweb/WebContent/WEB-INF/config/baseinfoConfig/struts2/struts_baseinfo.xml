@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+    <package name="QSS" extends="json-default" namespace="/QSS_Spatial">
+        <action name="terminalDevice_*" class="com.xmbestone.example.action.TerminalDeviceAction" method="{1}">
+		     <result type="json">
+                 <param name="root"/>
+             </result>
+		</action>
+	</package>
